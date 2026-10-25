@@ -1,0 +1,77 @@
+// ============================================================================
+// LPU Touch — Ionic 7 Dark Mode Palette (src/theme/variables.scss)
+// ============================================================================
+// Drop this into src/theme/variables.scss (either inside :root for default dark
+// mode, or inside body.dark / @media (prefers-color-scheme: dark) for a toggle).
+
+:root,
+body,
+body.dark,
+.ios,
+.md {
+  color-scheme: dark;
+
+  // Core App Surfaces
+  --ion-background-color: #121212 !important;
+  --ion-background-color-rgb: 18, 18, 18 !important;
+  --ion-text-color: #f1f5f9 !important;
+  --ion-text-color-rgb: 241, 245, 249 !important;
+
+  // Elevated Surfaces (Cards, Lists, Toolbars, Modals, Popovers)
+  --ion-card-background: #1e1e1e !important;
+  --ion-card-color: #f1f5f9 !important;
+  --ion-item-background: #1e1e1e !important;
+  --ion-item-color: #f1f5f9 !important;
+  --ion-item-border-color: #2e2e2e !important;
+  --ion-toolbar-background: #1a1a1a !important;
+  --ion-toolbar-color: #f1f5f9 !important;
+  --ion-Toolbar-border-color: #2e2e2e !important;
+  --ion-tab-bar-background: #1a1a1a !important;
+  --ion-tab-bar-color: #94a3b8 !important;
+  --ion-tab-bar-color-selected: #fe8573 !important;
+  --ion-modal-background: #1e1e1e !important;
+  --ion-popover-background: #1e1e1e !important;
+  --ion-border-color: #2e2e2e !important;
+
+  // LPU Custom Theme Variables (overrides host variables in 86.js & 9520.js)
+  --page-bg: #121212 !important;
+  --card-bg: #1e1e1e !important;
+  --text-dark: #f1f5f9 !important;
+  --text-muted: #94a3b8 !important;
+  --border: #2e2e2e !important;
+  --ion-color-lightgray: #cbd5e1 !important;
+
+  // Stepped Contrast Scale (50 = darkest elevated surface, 950 = brightest text)
+  --ion-color-step-50: #1a1a1a !important;
+  --ion-color-step-100: #222222 !important;
+  --ion-color-step-150: #2a2a2a !important;
+  --ion-color-step-200: #333333 !important;
+  --ion-color-step-250: #3d3d3d !important;
+  --ion-color-step-300: #474747 !important;
+  --ion-color-step-350: #545454 !important;
+  --ion-color-step-400: #636363 !important;
+  --ion-color-step-450: #737373 !important;
+  --ion-color-step-500: #858585 !important;
+  --ion-color-step-550: #969696 !important;
+  --ion-color-step-600: #a8a8a8 !important;
+  --ion-color-step-650: #b8b8b8 !important;
+  --ion-color-step-700: #c7c7c7 !important;
+  --ion-color-step-750: #d6d6d6 !important;
+  --ion-color-step-800: #e3e3e3 !important;
+  --ion-color-step-850: #ededed !important;
+  --ion-color-step-900: #f5f5f5 !important;
+  --ion-color-step-950: #fafafa !important;
+
+  // Light semantic token remapped to dark elevated surface for cards/containers
+  --ion-color-light: #1e1e1e !important;
+  --ion-color-light-rgb: 30, 30, 30 !important;
+  --ion-color-light-contrast: #f1f5f9 !important;
+  --ion-color-light-contrast-rgb: 241, 245, 249 !important;
+  --ion-color-light-shade: #171717 !important;
+  --ion-color-light-tint: #292929 !important;
+
+  --ion-color-medium: #94a3b8 !important;
+  --ion-color-dark: #f1f5f9 !important;
+  --ion-color-dark-rgb: 241, 245, 249 !important;
+  --ion-color-dark-contrast: #121212 !important;
+}

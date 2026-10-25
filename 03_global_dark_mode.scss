@@ -1,0 +1,139 @@
+// ============================================================================
+// LPU Touch — Global Dark Mode Component Overrides (src/global.scss)
+// ============================================================================
+
+html,
+body,
+ion-app,
+ion-content,
+ion-Router-outlet {
+  background-color: #121212 !important;
+  color: #f1f5f9 !important;
+}
+
+ion-content {
+  --background: #121212 !important;
+  --color: #f1f5f9 !important;
+}
+
+// Cards, Lists, Accordion & Item Surfaces
+ion-card,
+ion-list,
+ion-accordion-group,
+ion-accordion {
+  --background: #1e1e1e !important;
+  background: #1e1e1e !important;
+  color: #f1f5f9 !important;
+  border-color: #2e2e2e !important;
+}
+
+ion-item,
+ion-item-divider,
+ion-list-header {
+  --background: #1e1e1e !important;
+  --color: #f1f5f9 !important;
+  --border-color: #2e2e2e !important;
+  color: #f1f5f9 !important;
+}
+
+// CRITICAL FIX: Keep ion-input transparent inside ion-item so floating
+// ion-label (used in Student Laundry 7320.js) is never covered when unfocused
+ion-item ion-input,
+ion-item ion-textarea,
+ion-item ion-select {
+  --background: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  --color: #f1f5f9 !important;
+  --placeholder-color: #94a3b8 !important;
+  color: #f1f5f9 !important;
+}
+
+ion-item ion-label,
+ion-label {
+  --color: #e2e8f0 !important;
+  color: #e2e8f0 !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+// Standalone Inputs & Searchbars
+ion-searchbar {
+  --background: #262626 !important;
+  --color: #f1f5f9 !important;
+  --placeholder-color: #94a3b8 !important;
+  --icon-color: #94a3b8 !important;
+  --clear-button-color: #94a3b8 !important;
+}
+
+input:not(ion-item input),
+textarea:not(ion-item textarea),
+select:not(ion-item select) {
+  background-color: #262626 !important;
+  color: #f1f5f9 !important;
+  border-color: #3b3b3b !important;
+}
+
+// High-Contrast Text Hierarchy for View Marks, Sitting Plan, and Tables
+.course-name,
+.marks,
+.head,
+.sub-head,
+.title,
+.subtitle,
+.label,
+.value,
+.info-label,
+.info-value,
+.section-title,
+.field-label,
+table,
+th,
+td,
+tr,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+dt,
+dd {
+  color: #f1f5f9;
+}
+
+// Preserve crisp dark text on LPU's signature peach/orange gradient buttons & badges
+.assessment-score,
+.submit-btn,
+.login-btn,
+.sign_in,
+.btn-submit,
+[style*="linear-gradient(90deg, #fe8573"],
+[style*="linear-gradient(90deg,#fe8573"] {
+  color: #1a1a1a !important;
+}
+
+// CRITICAL FIX: White quiet-zone pad around generated QR codes inside alerts
+// (e.g. Student Laundry QR Code popup) so optical scanners read them reliably
+ion-alert .alert-wrapper {
+  background: #1e1e1e !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #333333 !important;
+}
+
+ion-alert .alert-title,
+ion-alert .alert-sub-title,
+ion-alert .alert-message {
+  color: #f1f5f9 !important;
+}
+
+ion-alert .alert-message img {
+  background: #ffffff !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+  display: block;
+  margin: 8px auto;
+}

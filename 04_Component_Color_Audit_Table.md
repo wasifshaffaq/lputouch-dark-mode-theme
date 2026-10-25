@@ -1,0 +1,14 @@
+# Component-Level Hardcoded Color Audit (LPU Touch v23.50)
+
+During the audit of all 206 webpack JS bundles (`assets/public/*.js`), over 450 component-scoped CSS rules and Angular template `consts` were found using hardcoded hex colors instead of Ionic CSS variables. Below are the highest-impact screens and their recommended source changes:
+
+| Screen / Module | Bundle File | Selector / Element | Original Light-Mode Value | Dark-Mode Replacement | Reason |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Exams Available / Sitting Plan** | `6582.e9dfd8f4ac966305.js` | `Exam Date:` inline `consts` | `color: #573939` | `color: #ffd57a` | Dark muddy brown (`#573939`) is unreadable on `#1e1e1e` cards; warm gold (`#ffd57a`) preserves emphasis with high contrast. |
+| **Exams Available / Sitting Plan** | `6582.e9dfd8f4ac966305.js` | `Room No :` & `Reporting Time :` | `color: var(--ion-color-lightgray)` | `color: #cbd5e1` | `--ion-color-lightgray` had low contrast against dark elevated containers. |
+| **View Marks** | `9382.65e6b9be9956b453.js` & `8824.bfbd2e895b29379f.js` | `.course-name[_ngcontent-%COMP%]` | `color: #606060; font-size: 3.4vw` | `color: #f1f5f9 !important; font-size: 3.4vw` | Mid-grey (`#606060`) assessment names and marks were too dim on `#121212` / `#1e1e1e` rows. |
+| **View Marks** | `9382.65e6b9be9956b453.js` & `8824.bfbd2e895b29379f.js` | `Type \| Marks \| Weightage` header row `consts` | `[2, "color", "#404040"]` | `[2, "color", "#f1f5f9"]` | `#404040` table column headers blended into the `#262626` header bar. |
+| **Student Laundry** | `7320.ad3cd2d1b4ae3c3a.js` | `ion-item ion-input` & `ion-label[position="floating"]` | Opaque input background over floating label | `background: transparent !important` + `z-index: 2` on `ion-label` | Unfocused floating labels translate into the `ion-input` box (`translate3d(0, 29px, 0)`) and were hidden behind opaque input backgrounds. |
+| **Announcements** | `86.21c8480a71fd56f6.js` | `:host` CSS custom properties | `--page-bg: #f6f7fb; --card-bg: #ffffff; --text-dark: #1f2328` | `--page-bg: #121212; --card-bg: #1e1e1e; --text-dark: #f1f5f9` | Host-scoped variables overrode root `:root` variables with light backgrounds. |
+| **Doctor Appointment** | `9520.b5812fa5cb9d6229.js` | `:host` CSS custom properties | `--page-bg: #f6f7fb; --card-bg: #ffffff; --text-dark: #1f2937` | `--page-bg: #121212; --card-bg: #1e1e1e; --text-dark: #f1f5f9` | Host-scoped variables forced white cards and dark text. |
+| **Dashboard & Profile Icons** | `assets/icon/` & `assets/imgs/` | `burger-bar.png`, `Notification1.png`, `user1.png` | Solid black (`#000000`) RGB channels on transparent PNG | Inverted RGB channels (`#ffffff`) preserving alpha channel | Black raster PNG icons were invisible against the `#1a1a1a` top toolbar and profile cards. |
